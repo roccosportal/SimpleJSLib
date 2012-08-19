@@ -24,7 +24,7 @@ Example
 		}
 		
 		me.destroy = function(){
-			Module1.detach("done", module1onDone);
+			Module1.detach("done", me.module1onDone);
 		}
 		
 		return me;
