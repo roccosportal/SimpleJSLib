@@ -9,6 +9,7 @@ Usage
 --------------
 Include the function/object you need.
 You can call it via:
+
     SimpleJSLib.the-object-or-function()
     
 Have a look in the examples folder.
@@ -23,6 +24,7 @@ You weather can append callbacks to a queue than triggers after a certain time o
 can run asynchronus request and only the last was will be handled.
 
 * EventHandler
+
         Just "inherit" from this object an you can fire events and somebody else can listen to it.
 
         
