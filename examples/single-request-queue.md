@@ -26,12 +26,19 @@ If the first request needs longer than the last request it may happens that the 
 ```javascript
 	var queue = SimpleJSLib.SingleRequestQueue();
 	// returns a request object with the function isLatestRequest()
-	var request = queue.runAsynchronRequest();
-	$.getJSON('url', {
-			search : $('#searchbox').val()
-		}, function(data) {
-			if(request.isLatestRequest()){
-				// handle request
-			}
-	});		
+	
+	function search(searchphrase){
+	
+		var request = queue.runAsynchronRequest();
+		$.getJSON('url', {
+				search : searchphrase
+			}, function(data) {
+				if(request.isLatestRequest()){
+					// handle request
+				}
+		});
+	}
+	
+	search('abcdefghijklmnop');
+	search('b');
  ```         
