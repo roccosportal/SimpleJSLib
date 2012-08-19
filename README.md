@@ -23,9 +23,12 @@ Contents
 You weather can append callbacks to a queue than triggers after a certain time or you
 can run asynchronus request and only the last was will be handled.
 
+
+
 * EventHandler
 
-        Just "inherit" from this object an you can fire events and somebody else can listen to it.
+	Just "inherit" from this object an you can fire events and 
+somebody else can listen to it.
 
         
 
