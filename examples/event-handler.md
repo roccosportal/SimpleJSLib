@@ -16,7 +16,7 @@ Example
    var Module2 = function(){
 		var me = {};
 		me.init = function(){
-			Module1.attach("done", module1onDone);
+			Module1.attach("done", me.module1onDone);
 		}
 		
 		me.module1onDone = function(){
