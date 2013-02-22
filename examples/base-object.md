@@ -42,7 +42,7 @@ var myClassInstance = MyClass.construct();
 console.log(myClassInstance.getMyValue());
 
 
-var mySubClassInstance = MyClass.construct();
+var mySubClassInstance = MySubClass.construct();
 console.log(mySubClassInstance.anotherFunction());
     
 ```
