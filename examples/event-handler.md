@@ -1,41 +1,42 @@
 Example
 ===========
+If an module inherits from SimpleJSLib.EventHandler its allows the module to fire events and allows others to attach to the events.
+
 
 
 ```javascript
-    var Module1 = function(){
-		var me = SimpleJSLib.EventHandler();
-		
+var One = SimpleJSLib.EventHandler.inherit(function(me, _protected){
 		me.doSomething = function(){
 			// do something
-			me.fire("done");
+			me.fireEvent("done");
 		}
 		return me;
-    }();
-    
-   var Module2 = function(){
-		var me = {};
-		me.init = function(){
-			Module1.attach("done", me.module1onDone);
-		}
-		
-		me.module1onDone = function(){
-			// Module 1 did something
-		}
-		
-		me.destroy = function(){
-			Module1.detach("done", me.module1onDone);
-		}
-		
-		return me;
-    }();
-    
-    
-    Module2.init();
-    Module1.doSomething();
-    Module2.destory();
-    
-```     
-     
 
-  
+ }).construct(); // singelton
+
+ 
+    
+var Two = SimpleJSLib.BaseObject.inherit(function(me, _protected){
+
+	_protected.onDone = function(){
+		// One did something
+		console.log('onDone')
+	}
+
+	me.init = function(){
+		One.attachEvent("done", _protected.onDone);
+	}
+	
+	me.destroy = function(){
+		One.detachEvent("done", _protected.onDone);
+	}
+	
+	return me;
+}).construct(); // singelton
+    
+    
+Two.init();
+One.doSomething();
+Two.destroy();
+    
+```
